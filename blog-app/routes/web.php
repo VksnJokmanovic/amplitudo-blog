@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,20 +19,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Display a list of all posts
-Route::get('/post', [postController::class, 'index'])->name('post.index');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-// Display a specific post by its ID
-Route::get('/post/{id}', [postController::class, 'show'])->name('post.show');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    // Post routes
+    Route::get('/posts',[PostController::class,'index']);
+});
 
-// Display a form for creating a new post
-Route::get('/post/create', [postController::class, 'create'])->name('post.create');
-
-// Store a new post post in the database
-Route::post('/post', [postController::class, 'store'])->name('post.store');
-
-// Display a form for editing an existingpost
-Route::get('/post/{id}/edit', [postController::class, 'edit'])->name('post.edit');
-
-// Update an existing post in the database
-Route::put('/post/{id}', [postController::class, 'update'])->name('post.update');
+require __DIR__.'/auth.php';
