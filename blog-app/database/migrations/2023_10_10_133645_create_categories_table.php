@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('category_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->string('title');
+            $table->text('content')->nullable();
         });
     }
 
