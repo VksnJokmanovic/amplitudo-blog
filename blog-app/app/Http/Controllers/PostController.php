@@ -34,9 +34,10 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($post_id)
     {
-        //
+        $post= Post::query()->find($post_id);
+       return view('posts.show', ['post'=> $post]);
     }
 
     /**
