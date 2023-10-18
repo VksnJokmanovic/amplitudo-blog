@@ -12,18 +12,27 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Blogs
         </h2>
-
-
     </x-slot>
 
     <div class="container mt-5">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">{{$post->title}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{$post->summary}}</h6>
-                <p class="card-text">{{$post->content}}</p>
+        <form>
+            <div class="mb-3">
+                <label class="form-label">Title</label>
+                <input type="text" class="form-control">
 
             </div>
-        </div>
+            <div class="mb-3">
+                <label  class="form-label">Summary</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label  class="form-label">Content</label>
+                <input type="text" class="form-control">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
     </div>
+
 </x-app-layout>
