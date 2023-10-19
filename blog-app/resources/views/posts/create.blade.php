@@ -15,7 +15,9 @@
     </x-slot>
 
     <div class="container mt-5">
-        <form>
+        <a class="btn btn-dark mb-5" href="{{url()->previous()}}">Back</a>
+        <form method="POST" action="{{route('post.store')}}">
+            @csrf
             <div class="mb-3">
                 <label class="form-label">Title</label>
                 <input type="text" class="form-control">

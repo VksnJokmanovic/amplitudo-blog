@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -12,7 +13,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('posts.index', ['posts' => Post::all()]);
+        $paginateBlogs= Post::query()->paginate(8);
+        return view('posts.index', ['posts' => $paginateBlogs]);
     }
 
     /**
@@ -28,7 +30,16 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Post::query()->create([
+                'title' => $request->title,
+                'summary'=>$request->summary,
+                'content'=>$request->content,
+                'user_id'=>$request->user_id=Auth::id()
+            ]
+
+        );
+
+        return redirect()->route('post.index');
     }
 
     /**

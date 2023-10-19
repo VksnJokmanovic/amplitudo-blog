@@ -17,6 +17,7 @@
     </x-slot>
 
     <div class="container mt-5">
+        <a class="btn btn-success" href="{{route('post.create')}}">Make a post!</a>
         <table class="table">
             <thead>
             <th>Title</th>
@@ -39,7 +40,10 @@
             </tbody>
 
         </table>
+        <div>
 
+            {{$posts->links()}}
+        </div>
 
     </div>
 </x-app-layout>
