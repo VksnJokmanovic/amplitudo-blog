@@ -70,8 +70,25 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Post $post, Request $request)
     {
-        //
+        $redirectPage = $this->calculateRedirectPage($request->perPage,$request->total,$request->currentPage );
+        $post->delete();
+        return redirect()->route('post.index', ['page' => $redirectPage]);
+    }
+
+    public function calculateRedirectPage($perPage, $total, $currentPage){
+       if ($total<$perPage)
+           return 1;
+
+       $numberOfElements = $total - ($currentPage-1)*$perPage;
+       if($numberOfElements ==1)
+           return $currentPage-1;
+
+       return $currentPage;
+
+
+
+
     }
 }

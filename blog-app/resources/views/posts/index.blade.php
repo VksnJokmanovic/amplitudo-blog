@@ -33,6 +33,17 @@
                         </td>
                     <td>{{$post->summary}}</td>
                     <td>{{$post->published_at}}</td>
+                    <td>
+                        <form action="{{route('post.delete', $post->id)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <input type="hidden" name="page" value="{{$posts->currentPage()}}">
+                            <input type="hidden" name="total" value="{{$posts->total()}}">
+                            <input type="hidden" name="total" value="{{$posts->perPage()}}">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+
+                    </td>
                 </tr>
 
             @endforeach
