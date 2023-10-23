@@ -30,6 +30,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
         Post::query()->create([
                 'title' => $request->title,
                 'summary'=>$request->summary,
@@ -54,17 +55,18 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Post $post)
     {
-        //
+        return view('posts.edit', ['post'=>$post]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdatePostRequest $request, Post $post)
     {
-        //
+        Post::query()->where('id', $post->id)->update($request->validated());
+        return redirect()->route('posts.index');
     }
 
     /**
