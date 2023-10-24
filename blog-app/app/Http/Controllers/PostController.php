@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\UpdatePostRequest;
 
 class PostController extends Controller
 {
@@ -66,7 +67,7 @@ class PostController extends Controller
     public function update(UpdatePostRequest $request, Post $post)
     {
         Post::query()->where('id', $post->id)->update($request->validated());
-        return redirect()->route('posts.index');
+        return redirect()->route('post.index');
     }
 
     /**

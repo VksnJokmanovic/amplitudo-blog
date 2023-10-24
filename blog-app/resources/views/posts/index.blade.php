@@ -34,14 +34,23 @@
                     <td>{{$post->summary}}</td>
                     <td>{{$post->published_at}}</td>
                     <td>
-                        <form action="{{route('post.delete', $post->id)}}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <input type="hidden" name="page" value="{{$posts->currentPage()}}">
-                            <input type="hidden" name="total" value="{{$posts->total()}}">
-                            <input type="hidden" name="total" value="{{$posts->perPage()}}">
-                            <button class="btn btn-danger">Delete</button>
-                        </form>
+                        <div class="row">
+                            <div class="col">
+                                <form action="{{route('post.delete', $post->id)}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="hidden" name="page" value="{{$posts->currentPage()}}">
+                                    <input type="hidden" name="total" value="{{$posts->total()}}">
+                                    <input type="hidden" name="total" value="{{$posts->perPage()}}">
+                                    <button class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+                            <div class="col">
+                                <a class="btn btn-warning" href="{{ route('post.edit', $post->id) }}">Edit Blog</a>
+                            </div>
+                        </div>
+
+
 
                     </td>
                 </tr>
