@@ -15,22 +15,31 @@
     </x-slot>
 
     <div class="container mt-5">
-        <a class="btn btn-dark mb-5" href="{{url()->previous()}}">Back</a>
+        <a class="btn btn-dark mb-5" href="{{back()->getTargetUrl()}}">Back</a>
         <form method="POST" action="{{route('post.store')}}">
             @csrf
             <div class="mb-3">
                 <label class="form-label">Title</label>
                 <input type="text" name="title" class="form-control">
-
+                @error('content')
+                <div class="alert alert-danger mt-2">{{$message}}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label  class="form-label">Summary</label>
                 <input type="text" name="summary" class="form-control">
+                @error('summary')
+                <div class="alert alert-danger mt-2">{{$message}}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label class="form-label">Content</label>
                 <input type="text" name="content" class="form-control">
+                @error('content')
+                <div class="alert alert-danger mt-2">{{$message}}</div>
+                @enderror
             </div>
+
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

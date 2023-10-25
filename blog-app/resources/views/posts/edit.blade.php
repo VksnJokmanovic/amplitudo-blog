@@ -15,7 +15,7 @@
     </x-slot>
 
     <div class="container mt-5">
-        <a class="btn btn-dark mb-5" href="{{ url()->previous() }}">Back</a>
+        <a class="btn btn-dark mb-5" href="{{ back()->getTargetUrl()}}">Back</a>
         <form method="POST" action="{{ route('post.update', $post->id) }}">
             @csrf
             @method('PUT') <!-- Use PUT method for updating -->
