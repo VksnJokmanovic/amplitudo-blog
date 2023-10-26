@@ -9,4 +9,13 @@ class Tag extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    protected $fillable = [
+        'tag'
+    ];
+
+    public function posts()
+    {
+        return $this->belongsToMany('App\Post');
+    }
+
 }
