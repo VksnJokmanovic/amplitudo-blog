@@ -36,6 +36,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/posts',[PostController::class,'store'])->name('post.store');
     Route::put('/posts/{post}S',[PostController::class,'update'])->name('post.update');
 
+//    Category Routes
+    Route::resource('categories', \App\Http\Controllers\CategoryController::class);
+
+//    Tag Routes
+    Route::resource('tags', \App\Http\Controllers\TagController::class);
+//    Comment Routes
+    Route::resource('comments', \App\Http\Controllers\CommentController::class);
 
 
 
