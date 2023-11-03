@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Requests\StoreTagRequest;
+use App\Http\Requests\UpdateTagRequest;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 
@@ -89,9 +90,5 @@ class TagController extends Controller
             return $currentPage-1;
 
         return $currentPage;
-
-
-
-
     }
 }
