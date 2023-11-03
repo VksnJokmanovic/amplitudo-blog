@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('post.edit');
     Route::delete('/posts/{post}',[PostController::class,'destroy'])->name('post.delete');
     Route::post('/posts',[PostController::class,'store'])->name('post.store');
-    Route::put('/posts/{post}S',[PostController::class,'update'])->name('post.update');
+    Route::put('/posts/{post}',[PostController::class,'update'])->name('post.update');
 
 //    Category Routes
     Route::resource('categories', \App\Http\Controllers\CategoryController::class);

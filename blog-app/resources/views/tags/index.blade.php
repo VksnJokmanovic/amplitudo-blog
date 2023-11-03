@@ -38,9 +38,9 @@
                                 <form action="{{route('tags.destroy', $tag->id)}}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    {{--                                    <input type="hidden" name="page" value="{{$tags->currentPage()}}">--}}
-                                    {{--                                    <input type="hidden" name="total" value="{{$tags->total()}}">--}}
-                                    {{--                                    <input type="hidden" name="total" value="{{$tags->perPage()}}">--}}
+                                        <input type="hidden" name="page" value="{{$tags->currentPage()}}">
+                                        <input type="hidden" name="total" value="{{$tags->total()}}">
+                                        <input type="hidden" name="total" value="{{$tags->perPage()}}">
                                     <button class="btn btn-danger">Delete</button>
                                 </form>
                             </div>
