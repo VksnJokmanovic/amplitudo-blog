@@ -8,6 +8,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
             integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
     </script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#mytextarea'
+        });
+    </script>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Blogs
@@ -34,7 +40,9 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Content</label>
-                <input type="text" name="content" class="form-control">
+                <textarea id="mytextarea"  name="content"  >Hello, World!</textarea>
+                
+
                 @error('content')
                 <div class="alert alert-danger mt-2">{{$message}}</div>
                 @enderror

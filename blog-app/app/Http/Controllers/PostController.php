@@ -15,6 +15,10 @@ class PostController extends Controller
      */
     public function index()
     {
+
+//        if(!auth()->user()>is_admin){
+//            redirect()->route('dashboard');
+//        }
         $paginateBlogs= Post::query()->paginate(8);
         return view('posts.index', ['posts' => $paginateBlogs]);
     }
