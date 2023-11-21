@@ -16,14 +16,36 @@
 
     </x-slot>
 
-    <div class="container mt-5">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title border-bottom mb-3">{{$post->title}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted border-bottom">{{$post->summary}}</h6>
-                <p class="card-text fw-bold">{{$post->content}}</p>
+{{--    <div class="container mt-5">--}}
+{{--        <div class="card" style="width: 18rem;">--}}
+{{--            <div class="card-body">--}}
+{{--                <h5 class="card-title border-bottom mb-3">{{$post->title}}</h5>--}}
+{{--                <h6 class="card-subtitle mb-2 text-muted border-bottom">{{$post->summary}}</h6>--}}
+{{--                <p class="card-text fw-bold">{!! $post->content !!}</p>--}}
 
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1>{{ $post->title }}</h1>
+{{--                <p class="text-muted">--}}
+{{--                    Category: {{ $post->category->name }}--}}
+{{--                </p>--}}
+{{--                <p class="text-muted">--}}
+{{--                    Tags:--}}
+{{--                    @foreach($post->tags as $tag)--}}
+{{--                        <span class="badge badge-primary">{{ $tag->name }}</span>--}}
+{{--                    @endforeach--}}
+{{--                </p>--}}
+                <hr>
+
+                <div class="content">
+                    {!! $post->content !!}
+                </div>
             </div>
         </div>
     </div>
+
 </x-app-layout>
