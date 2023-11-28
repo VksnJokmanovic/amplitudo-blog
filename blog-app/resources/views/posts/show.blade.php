@@ -30,15 +30,15 @@
         <div class="row">
             <div class="col-md-8">
                 <h1>{{ $post->title }}</h1>
-{{--                <p class="text-muted">--}}
-{{--                    Category: {{ $post->category->name }}--}}
-{{--                </p>--}}
-{{--                <p class="text-muted">--}}
-{{--                    Tags:--}}
-{{--                    @foreach($post->tags as $tag)--}}
-{{--                        <span class="badge badge-primary">{{ $tag->name }}</span>--}}
-{{--                    @endforeach--}}
-{{--                </p>--}}
+                <p class="text-muted">
+                    Category: {{ $post->category->name }}
+                </p>
+                <p class="text-muted">
+                    Tags:
+                    @foreach($post->tags as $tag)
+                        <span class="badge badge-primary">{{ $tag->name }}</span>
+                    @endforeach
+                </p>
                 <hr>
 
                 <div class="content">
